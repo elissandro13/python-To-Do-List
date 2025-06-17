@@ -1,3 +1,8 @@
+"""
+Sistema de Gerenciamento de Tarefas (To-Do List)
+Permite criar, listar, marcar como concluída e remover tarefas
+"""
+
 from datetime import datetime, timedelta
 from enum import Enum
 import json
@@ -151,7 +156,7 @@ def main():
     # Adicionar algumas tarefas de exemplo
     manager.add_task(
         "Estudar Python",
-        "Revisar conceitos de POO e testes unitários",
+        "Revisar conceitos de POO e testes unitarios",
         Priority.HIGH,
         datetime.now() + timedelta(days=3)
     )
@@ -165,7 +170,7 @@ def main():
     
     manager.add_task(
         "Exercitar-se",
-        "Ir à academia ou fazer uma caminhada",
+        "Ir a academia ou fazer uma caminhada",
         Priority.LOW,
         datetime.now() + timedelta(days=2)
     )
@@ -173,7 +178,7 @@ def main():
     # Adicionar uma tarefa atrasada para demonstração
     overdue_task = manager.add_task(
         "Tarefa Atrasada",
-        "Esta tarefa está com prazo vencido",
+        "Esta tarefa esta com prazo vencido",
         Priority.HIGH,
         datetime.now() - timedelta(days=1)
     )
@@ -183,38 +188,38 @@ def main():
     
     # Mostrar estatísticas
     stats = manager.get_task_count()
-    print(f"📊 Estatísticas:")
+    print("ESTATISTICAS:")
     print(f"   Total: {stats['total']}")
     print(f"   Pendentes: {stats['pending']}")
-    print(f"   Concluídas: {stats['completed']}")
+    print(f"   Concluidas: {stats['completed']}")
     print(f"   Atrasadas: {stats['overdue']}\n")
     
     # Mostrar tarefas pendentes
-    print("📋 Tarefas Pendentes:")
+    print("TAREFAS PENDENTES:")
     for task in manager.get_pending_tasks():
-        status = "⚠️ ATRASADA" if task.is_overdue() else "📅 No prazo"
-        priority_symbol = "🔴" if task.priority == Priority.HIGH else "🟡" if task.priority == Priority.MEDIUM else "🟢"
+        status = "ATRASADA" if task.is_overdue() else "No prazo"
+        priority_symbol = "[ALTA]" if task.priority == Priority.HIGH else "[MEDIA]" if task.priority == Priority.MEDIUM else "[BAIXA]"
         print(f"   {priority_symbol} [{task.id}] {task.title} - {status}")
         if task.description:
-            print(f"      Descrição: {task.description}")
+            print(f"      Descricao: {task.description}")
         if task.due_date:
             print(f"      Prazo: {task.due_date.strftime('%d/%m/%Y')}")
         print()
     
     # Mostrar tarefas concluídas
-    print("✅ Tarefas Concluídas:")
+    print("TAREFAS CONCLUIDAS:")
     for task in manager.get_completed_tasks():
         print(f"   [{task.id}] {task.title}")
         if task.completed_at:
-            print(f"      Concluída em: {task.completed_at.strftime('%d/%m/%Y %H:%M')}\n")
+            print(f"      Concluida em: {task.completed_at.strftime('%d/%m/%Y %H:%M')}\n")
     
     # Demonstrar busca
-    print("🔍 Busca por 'python':")
+    print("BUSCA por 'python':")
     results = manager.search_tasks("python")
     for task in results:
         print(f"   [{task.id}] {task.title}")
     
-    print(f"\n🎯 Sistema funcionando perfeitamente!")
+    print("\nSistema funcionando perfeitamente!")
 
 if __name__ == "__main__":
     main()
