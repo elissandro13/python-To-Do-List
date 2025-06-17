@@ -1,7 +1,5 @@
 # 📋 Sistema de Gerenciamento de Tarefas
 
-[![CI - Testes Multiplataforma](https://github.com/seu-usuario/seu-repositorio/actions/workflows/ci.yml/badge.svg)](https://github.com/seu-usuario/seu-repositorio/actions/workflows/ci.yml)
-
 Este projeto foi desenvolvido para a **Aula Prática 5 - GitHub Actions**, implementando um sistema completo de gerenciamento de tarefas (To-Do List) com testes em múltiplos sistemas operacionais e versões de linguagem.
 
 ## 🎯 Funcionalidades
